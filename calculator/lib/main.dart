@@ -17,6 +17,8 @@ class Mathemagiks extends StatelessWidget {
       ),
       home: const MyMathemagiks(
         title: 'Mathemagiks', 
+        primBackColor: Color.fromARGB(255, 30, 30, 30),
+        secBackColor: Color.fromARGB(255, 37, 37, 38),
         primColor: Color.fromARGB(255, 147, 207, 215),
         secColor: Color.fromARGB(255, 199, 151, 170), 
         tertColor: Color.fromARGB(255, 221, 222, 214),
@@ -30,15 +32,18 @@ class Mathemagiks extends StatelessWidget {
 class MyMathemagiks extends StatefulWidget {
   const MyMathemagiks({ 
     Key? key, 
+    required this.primBackColor,
+    required this.secBackColor,
     required this.title, 
     required this.primColor,
     required this.secColor,
     required this.tertColor,
     required this.primTextColor,
-    required this.secTextColor
+    required this.secTextColor,
   }) : super(key: key);
 
   final String title;
+  final Color primBackColor, secBackColor;
   final Color primColor, secColor, tertColor;
   final Color primTextColor, secTextColor;
 
@@ -50,7 +55,22 @@ class _MyMathemagiksState extends State<MyMathemagiks> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: widget.primColor,
+      backgroundColor: widget.primBackColor,
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              color: widget.secBackColor,
+            ),
+          )
+        ],
+      )
     );
   }
 }
